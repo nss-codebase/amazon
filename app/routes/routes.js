@@ -22,7 +22,7 @@ module.exports = function(app, express){
   app.use(session({store:new RedisStore(), secret:'my super secret key', resave:true, saveUninitialized:true, cookie:{maxAge:null}}));
   passportConfig(passport, app);
 
-  app.use(security.authenticate);
+  app.use(security.locals);
   app.use(debug.info);
 
   app.get('/', home.index);
