@@ -33,6 +33,8 @@ module.exports = function(app, express){
   app.post('/login',                passport.authenticate('local',   {successRedirect:'/', failureRedirect:'/login', successFlash:'Successful Local Login!',   failureFlash:'Sorry, your local login was incorrect.'}));
   app.get('/auth/twitter',          passport.authenticate('twitter'));
   app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash:'Successful Twitter Login.', failureFlash:'Sorry, your twitter login was incorrect.'}));
+  app.get('/auth/github',           passport.authenticate('github'));
+  app.get('/auth/github/callback',  passport.authenticate('github',  {successRedirect:'/', failureRedirect:'/login', successFlash:'Successful Github Login.',  failureFlash:'Sorry, your github login was incorrect.'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);

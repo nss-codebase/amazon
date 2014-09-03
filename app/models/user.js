@@ -46,6 +46,14 @@ User.twitterAuthenticate = function(token, secret, twitter, cb){
   });
 };
 
+User.githubAuthenticate = function(token, secret, github, cb){
+  User.collection.findOne({githubId:github.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {githubId:github.id, username:github.username, type:'github'};
+    User.collection.save(user, cb);
+  });
+};
+
 User.prototype.update = function(o, cb){
   this.email = o.email;
   this.age   = o.age * 1;
