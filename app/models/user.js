@@ -37,5 +37,13 @@ User.localAuthenticate = function(email, password, cb){
   });
 };
 
+User.prototype.update = function(o, cb){
+  this.email = o.email;
+  this.age   = o.age * 1;
+  this.photo = o.photo;
+
+  User.collection.save(this, cb);
+};
+
 module.exports = User;
 

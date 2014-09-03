@@ -12,6 +12,7 @@ exports.login = function(req, res){
 
 exports.logout = function(req, res){
   req.logout();
+  req.flash('notice', 'You have successfully logged out of the system.');
   res.redirect('/');
 };
 
@@ -22,6 +23,21 @@ exports.create = function(req, res){
     }else{
       res.redirect('/register');
     }
+  });
+};
+
+exports.show = function(req, res){
+  res.render('users/show');
+};
+
+exports.edit = function(req, res){
+  res.render('users/edit');
+};
+
+exports.update = function(req, res){
+  req.user.update(req.body, function(){
+    req.flash('notice', 'You have updated the user.');
+    res.redirect('/profile');
   });
 };
 
