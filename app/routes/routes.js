@@ -29,8 +29,10 @@ module.exports = function(app, express){
   app.get('/', home.index);
   app.get('/register', users.new);
   app.post('/register', users.create);
-  app.get('/login', users.login);
-  app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Successful login!', failureFlash:'Sorry, your login was incorrect.'}));
+  app.get('/login',                 users.login);
+  app.post('/login',                passport.authenticate('local',   {successRedirect:'/', failureRedirect:'/login', successFlash:'Successful Local Login!',   failureFlash:'Sorry, your local login was incorrect.'}));
+  app.get('/auth/twitter',          passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash:'Successful Twitter Login.', failureFlash:'Sorry, your twitter login was incorrect.'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
