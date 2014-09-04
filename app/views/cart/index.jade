@@ -1,5 +1,12 @@
 extends ../shared/template
 block content
+  form(method='post', action='/cart')
+    input(type='hidden', name='_method', value='delete')
+    button.btn.btn-warning(type='submit') Clear Cart
+
+  form(action='/charge', method='post')
+    script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key=key, data-image='/img/stripe.png', data-name='Amazon Global', data-amount=Math.round((total * 100)))
+
   table#products.table.table-bordered
     thead
       tr
@@ -7,7 +14,7 @@ block content
         th Image
         th Price
         th Quantity
-        th SubTotal
+        th
     tbody
       each id in ids
         tr
@@ -15,7 +22,13 @@ block content
           td(style='background-image:url("#{products[id].p.photo}")')
           td $#{products[id].p.price.toFixed(2)}
           td= products[id].c
-          td= '$' + subtotal.toFixed(2)
+          td= '$' + (products[id].p.price * products[id].c).toFixed(2)
+      tr
+        td
+        td
+        td
+        td SubTotal
+        td= '$' + subtotal.toFixed(2)
       tr
         td
         td

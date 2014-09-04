@@ -26,5 +26,10 @@ config.spotify = {
   callbackUrl : 'http://chyld-vm.com:3333/auth/spotify/callback'
 };
 
+config.stripe = {
+  publishKey : 'pk_test_hITBCSvRquKbXqH4FnLGUclK',
+  secretKey  : process.env.STRIPE_SECRET
+};
+
 module.exports = config;
 
