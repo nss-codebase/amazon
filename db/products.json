@@ -1,0 +1,26 @@
+{
+  "name" : "iPhone",
+  "photo" : "http://www.virginmobileusa.com/_img/_phones/iphone4s16gbwhitecpo/iphone4s16gbwhitecpo-overview-large.png",
+  "price" : 299.55
+}
+{
+  "name" : "iPad Air",
+  "photo" : "https://d3nevzfk7ii3be.cloudfront.net/igi/AUyYoTvgxKMq5kC2",
+  "price" : 350.45
+}
+{
+  "name" : "Apple TV",
+  "photo" : "http://upload.wikimedia.org/wikipedia/commons/7/72/Apple_TV_2nd_Generation.jpg",
+  "price" : 91.26
+}
+{
+  "name" : "MacBook Pro",
+  "photo" : "http://images.amazon.com/images/G/01/electronics/apple/apple-mbp2011-13-frontface_osx-lg.jpg",
+  "price" : 1829.96
+}
+{
+  "name" : "iWatch",
+  "photo" : "http://sproutmoney.com/files/2014/06/iwatch9.jpg",
+  "price" : 324.93
+}
+

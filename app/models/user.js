@@ -54,6 +54,22 @@ User.githubAuthenticate = function(token, secret, github, cb){
   });
 };
 
+User.googleAuthenticate = function(token, secret, google, cb){
+  User.collection.findOne({googleId:google.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {googleId:google.id, displayName:google.displayName, type:'google'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.spotifyAuthenticate = function(token, secret, spotify, cb){
+  User.collection.findOne({spotifyId:spotify.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {spotifyId:spotify.id, username:spotify.username, type:'spotify'};
+    User.collection.save(user, cb);
+  });
+};
+
 User.prototype.update = function(o, cb){
   this.email = o.email;
   this.age   = o.age * 1;

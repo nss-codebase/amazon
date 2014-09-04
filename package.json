@@ -48,7 +48,9 @@
     "multiparty": "^3.3.2",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
+    "passport-google-oauth": "^0.1.5",
     "passport-local": "^1.0.0",
+    "passport-spotify": "^0.1.0",
     "passport-twitter": "^1.0.2",
     "request": "^2.40.0",
     "underscore-contrib": "^0.3.0"

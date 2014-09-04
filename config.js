@@ -14,5 +14,17 @@ config.github = {
   callbackUrl : 'http://chyld-vm.com:3333/auth/github/callback'
 };
 
+config.google = {
+  clientId    : '484535587590-l8ddlf68r4edld25rum02nepcj24mmdr.apps.googleusercontent.com',
+  clientSecret: process.env.GOOGLE_SECRET,
+  callbackUrl : 'http://chyld-vm.com:3333/auth/google/callback'
+};
+
+config.spotify = {
+  clientId    : 'bc16b2195bc940ef80b6c18f3d244985',
+  clientSecret: process.env.SPOTIFY_SECRET,
+  callbackUrl : 'http://chyld-vm.com:3333/auth/spotify/callback'
+};
+
 module.exports = config;
 
