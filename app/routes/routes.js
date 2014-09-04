@@ -13,6 +13,7 @@ var morgan         = require('morgan'),
     debug          = require('../lib/debug'),
     home           = require('../controllers/home'),
     products       = require('../controllers/products'),
+    cart           = require('../controllers/cart'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -47,6 +48,8 @@ module.exports = function(app, express){
   app.get('/profile/edit', users.edit);
   app.put('/profile', users.update);
   app.get('/products', products.index);
+  app.post('/cart', cart.add);
+  app.get('/cart', cart.index);
 
   console.log('Express: Routes Loaded');
 };

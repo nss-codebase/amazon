@@ -9,7 +9,10 @@ block content
     tbody
       each product in products
         tr
-          td= product.name
+          td
+            form(method='post', action='/cart')
+              input(type='hidden', name='productId', value=product._id)
+              button.btn.btn-primary.btn-sm(type='submit')= product.name
           td(style='background-image:url("#{product.photo}")')
           td $#{product.price.toFixed(2)}
 
